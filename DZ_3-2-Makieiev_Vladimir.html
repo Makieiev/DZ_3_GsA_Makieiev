@@ -1,0 +1,45 @@
+<!-- 
+    Запросите у пользователя ввести какую-то фразу. Отобразите каждое отдельное слово в виде списка ul li. Также отобразите первое слово UPPERCASE, а последние 2 с маленькой. Найдите все буквы "а" их количество в модальное окно. 
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Домашнее задание 3-2 Макеев Владимир по JsA</title>
+</head>
+<body>
+	<script>
+		function inputUser() {
+			var input = prompt('Введите данные на русской раскладке клавиатуры');
+			if(input == "" || input == null) {
+				alert('Вы ввели не верные данные');
+				getStringFromUser();
+			} else {
+				var letA = 0;
+				for(var char of input.toLowerCase()) {
+					if(char == 'а') {
+						letA++;
+					}
+				} alert('Количество букв "а" в  вашей фразе = ' + letA);
+				var myWord = input.split(" ");
+				var myUl = document.createElement('ul');
+				document.body.Child(myUl);
+				for(var i = 0; i < myWord.length; i++) {
+					var myLi = document.createElement('li');
+					myUl.Child(myLi);
+					if(i == 0) {
+						myLi.innerHTML = myWord[i].toUpperCase();
+					} else if (i == myWord.length - 1) {
+						myLi.innerHTML = myWord[i].toLowerCase();
+					} else if(i == myWord.length - 2) {
+						myLi.innerHTML = myWord[i].toLowerCase();
+					} else {
+						myLi.innerHTML = myWord[i];
+					}
+				}
+			}
+		}
+		inputUser();
+	</script>
+</body>
+</html>
