@@ -1,0 +1,41 @@
+<!-- Также попробуйте изменить код так чтобы отчет начинался с 30 и заканчивался на 1. -->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Домашнее задание 3-1-2 Макеев Владимир по JsA-бонус: обратный отсчет</title>
+</head>
+<body>
+<div id="my_timer" style="color:  #7FFFD4; font-size: 200px; font-weight: bold;">30</div>
+<script type="text/javascript">
+     var sec=30;
+     var r=0;
+     var tt=0;
+     function Timer() {
+    	   sec-=1;
+           if(sec == 0) {
+           document.write("<h1 style = 'font-size: 100px; color:  #FA8072;'>Время вышло !!!</h1>");
+             } 
+        
+          if(sec==0)myStopFunction() 
+          sec = sec+"";      
+          if (sec.length<2) sec = "0"+sec;
+          my_timer.innerHTML=sec;
+        } 
+    function myStartFunction() {
+    	if(!r){
+    	r=1;T2()
+    	}
+    }
+    function T2() {
+    	if(sec==0)sec=30;
+        tt=setInterval("Timer()",1000)}
+    function myStopFunction() {
+    	clearInterval(tt);
+    	r=0;
+    } 
+</script>
+<button onclick="myStartFunction()">Запустить</button>
+<button onclick="myStopFunction()">Остановить</button>
+</body>
+</html>
