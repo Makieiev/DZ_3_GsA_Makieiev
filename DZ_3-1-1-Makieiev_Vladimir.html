@@ -1,0 +1,46 @@
+<!--     Создайте счетчик секунд, который начинает отчет с 1 и заканчивается на 30, также добавьте кнопки который останавливают отчет, и запускают его заново и добавьте кнопку обнуляющую отcчет. Также попробуйте изменить код так чтобы отчет начинался с 30 и заканчивался на 1. -->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Домашнее задание 3-1-1 Макеев Владимир по JsA</title>
+</head>
+<body>
+   <div id="my_timer" style="color:  #7FFFD4; font-size: 200px; font-weight: bold;">START</div>
+	<script>
+		var t;
+		   function myStartFunction() {
+			t = setInterval(timers, 1000);
+		   }
+		   var sec = 0;
+		   function timers() { 
+				sec++;
+                if(sec==0)myStopFunction()       
+                 sec = sec+"";
+                if(sec == 30) {
+				document.write("<h1 style = 'font-size: 100px; color:  #FA8072;'>Время вышло !!!</h1>");
+
+			    sec++;
+			    document.getElementById('my_timer').innerHTML =  sec;
+			    }
+    
+                if (sec.length<2) sec = "0"+sec;
+                my_timer.innerHTML=sec;
+                document.getElementById("my_timer").
+                   childNodes[0].nodeValue = sec;
+		    }
+		   function myStopFunction() {
+		 	clearInterval(t);
+			
+	    	}
+		   function myNullFunction() {
+			sec = 0;
+			clearInterval(t);
+			document.getElementById('my_timer').innerHTML = 'Обнуление';
+		    }
+	</script>
+	<button onclick="myStopFunction()">Остановить</button>
+<button onclick="myStartFunction()">Запустить</button>
+<button onclick="myNullFunction()">Обнулить</button>
+</body>
+</html>
